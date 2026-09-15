@@ -1,103 +1,103 @@
-# 贡献指南
+# Contributing
 
-感谢你对 Nova 的关注！这份指南会帮你顺畅地提交第一份贡献，无论是一个文档错字的修复，还是一个新功能。
+Thanks for your interest in Nova! This guide helps you ship your first contribution — whether it's a typo fix or a new feature.
 
-## 目录
+> 中文版见 [CONTRIBUTING.zh.md](./CONTRIBUTING.zh.md)。
 
-- [行为准则](#行为准则)
-- [我能做什么](#我能做什么)
-- [开发环境](#开发环境)
-- [分支模型](#分支模型)
-- [提交规范](#提交规范)
-- [提交 Pull Request](#提交-pull-request)
-- [代码风格与测试](#代码风格与测试)
+## Table of contents
 
-## 行为准则
+- [Code of Conduct](#code-of-conduct)
+- [What can I contribute](#what-can-i-contribute)
+- [Development environment](#development-environment)
+- [Branch model](#branch-model)
+- [Commit conventions](#commit-conventions)
+- [Submitting a Pull Request](#submitting-a-pull-request)
+- [Code style and tests](#code-style-and-tests)
 
-请互相尊重、对事不对人，保持坦诚、建设性的沟通。提交侮辱、歧视或攻击性内容会被直接拒绝。
+## Code of Conduct
 
-## 我能做什么
+Be respectful and critique ideas, not people. Keep communication honest and constructive. Insulting, discriminatory or aggressive content will be rejected.
 
-- **修复文档 / 错字**：直接开 PR 即可，标注 `docs:` 类型。
-- **修复 bug**：先确认能稳定复现，在 PR 描述里写清触发条件与用户影响。
-- **新增功能 / 特性**：先在 Issue 里说明动机与方案，达成一致后再动手，避免返工。
-- **评测 / 测试补充**：欢迎为工具路由、编排、教学引导等补充用例，见 [`evaluation/`](evaluation/)。
+## What can I contribute
 
-## 开发环境
+- **Fix docs / typos**: open a PR directly, typed `docs:`.
+- **Fix a bug**: confirm a stable reproduction first, and describe the trigger and user impact in the PR.
+- **Add a feature**: explain the motivation and approach in an Issue first and reach agreement before coding, to avoid rework.
+- **Add evaluation / tests**: test cases for tool routing, orchestration and guided teaching are welcome — see [`evaluation/`](evaluation/).
 
-前置条件：Python 3.11+、[uv](https://docs.astral.sh/uv/)、MySQL 8.x（可选 Redis）。
+## Development environment
+
+Prerequisites: Python 3.11+, [uv](https://docs.astral.sh/uv/), MySQL 8.x (Redis optional).
 
 ```powershell
 uv sync
-Copy-Item .env-example .env   # 填入模型密钥与数据库连接
-uv run python main.py bootstrap-db        # 初始化数据库结构
-uv run python main.py bootstrap-developer # 创建首个开发者账号
-uv run python main.py serve               # 启动 Web
+Copy-Item .env-example .env   # fill in the model key & database connection
+uv run python main.py bootstrap-db        # set up the schema
+uv run python main.py bootstrap-developer # create the first developer account
+uv run python main.py serve               # start the web server
 ```
 
-前端（学生端 + 监控端）在 `webui/`：
+The frontends (learner + monitor) live in `webui/`:
 
 ```powershell
 cd webui
 npm install
-npm run dev            # 学生端 Vite :5173
-npm run dev:monitor    # 监控端 Vite :5174
+npm run dev            # learner Vite on :5173
+npm run dev:monitor    # monitor Vite on :5174
 ```
 
-## 分支模型
+## Branch model
 
-项目采用 Git Flow，详见 [`git-flow 开发流程.md`](git-flow%20开发流程.md)：
+The project follows Git Flow — see [`git-flow 开发流程.md`](git-flow%20开发流程.md):
 
 ```text
-feature/*  ──PR──►  develop  ──PR──►  main
+feature/* ──PR──► develop ──PR──► main
 ```
 
-- 从 `develop` 拉出 `feature/<简述>` 或 `fix/<简述>` 分支。
-- 完成并通过本地验证后，向 `develop` 提 PR。
-- `main` 是受保护分支，只接受来自 `develop` 的合并。
+- Branch `feature/<topic>` or `fix/<topic>` from `develop`.
+- Open a PR against `develop` after local verification.
+- `main` is protected and only accepts merges from `develop`.
 
-## 提交规范
+## Commit conventions
 
-提交信息遵循 [Conventional Commits](https://www.conventionalcommits.org/)，与仓库历史保持一致：
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/), consistent with the repo history:
 
 ```text
-<type>(<scope>): <一句话描述>
+<type>(<scope>): <one-line summary>
 
-可选的正文与脚注
+optional body and footer
 ```
 
-常见 type：
+Common types:
 
-| type | 用途 |
+| type | purpose |
 | --- | --- |
-| `feat` | 新增功能 |
-| `fix` | 修复 bug |
-| `docs` | 文档变更 |
-| `refactor` | 重构（不改行为） |
-| `test` | 测试补充或修正 |
-| `chore` | 构建、依赖、杂项 |
+| `feat` | new feature |
+| `fix` | bug fix |
+| `docs` | documentation |
+| `refactor` | refactor (no behavior change) |
+| `test` | test additions / fixes |
+| `chore` | build, dependencies, misc |
 
-> 数据库 schema 变更必须由 Alembic 迁移独占管理（见 [`docs/migrations.md`](docs/migrations.md)），
-> 应用不执行 `create_all`，PR 里请勿包含手写建表。
+> Schema changes must go through Alembic migrations exclusively (see [`docs/migrations.md`](docs/migrations.md)); the app never calls `create_all`, so don't include hand-written DDL in PRs.
 
-## 提交 Pull Request
+## Submitting a Pull Request
 
-1. 先跑本地验证（见下方「代码风格与测试」），确认无失败。
-2. 按 [`.github/pull_request_template.md`](.github/pull_request_template.md) 的 7 段结构填写 PR 描述：
-   一句话概述、背景与动机、功能说明、实现方式、改动文件、测试与验证、影响与风险。
-3. 勾选 Reviewer Checklist，如实填写「未覆盖项」，没有时写「无」。
-4. 等待 CI（后端测试 + 静态检查、前端 lint/测试/构建、Docker 构建校验）通过。
+1. Run local verification first (see "Code style and tests" below) and make sure nothing fails.
+2. Fill in the 7-section structure from [`.github/pull_request_template.md`](.github/pull_request_template.md): summary, background & motivation, changes, implementation, files touched, test & verification, impact & risk.
+3. Tick the Reviewer Checklist and fill in "uncovered items" honestly — write "none" when there are none.
+4. Wait for CI (backend tests + lint, frontend lint/test/build, Docker build check) to pass.
 
-## 代码风格与测试
+## Code style and tests
 
-后端：
+Backend:
 
 ```powershell
 uv run ruff check configs core gateway server tests scripts migrations
 uv run pytest
 ```
 
-前端：
+Frontend:
 
 ```powershell
 cd webui
@@ -108,4 +108,4 @@ npm run build
 npm run build:monitor
 ```
 
-不强制要求所有测试都跑过才提交，但请在 PR 里如实说明哪些未覆盖、以及原因。
+You don't have to pass every test before submitting, but be honest in the PR about what isn't covered and why.

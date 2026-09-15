@@ -11,15 +11,17 @@
 <p>
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/FastAPI-005571?logo=fastapi" alt="FastAPI">
+  <img src="https://img.shields.io/badge/LangGraph-1C3C3C" alt="LangGraph">
   <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white" alt="Redis">
+  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker">
   <img src="https://img.shields.io/badge/License-MIT-0969da" alt="MIT License">
 </p>
 
 <p>
-  <a href="#features">✨ Features</a> ·
-  <a href="#architecture">🏗️ Architecture</a> ·
-  <a href="#quick-start">🚀 Quick Start</a> ·
+  <a href="#features">Features</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#quick-start">Quick Start</a> ·
   <a href="README.zh.md">中文</a> ·
   <a href="CONTRIBUTING.md">Contributing</a> ·
   <a href="LICENSE">License</a>
@@ -45,17 +47,17 @@ Nova ships as **four role-based views** over a single deployment, so a whole cla
 | Platform, models & configuration | Traces, metrics & worker activity |
 | <img src="docs/assets/screenshot-developer.png" alt="Developer view" width="480"> | <img src="docs/assets/screenshot-monitor.png" alt="Monitor view" width="480"> |
 
-## ✨ Features
+## Features
 
-- 🎓 **Four views for one classroom** — Learner, Teacher, Developer and Monitor interfaces, gated by role-based access control.
-- 🧭 **Socratic guided learning** — guided sessions carry a learner from a misconception to understanding, one step at a time.
-- 📝 **Auto-graded exercises** — teacher-defined blueprints generate fill-in, multiple-choice, table, formula, code and coordinate-graph questions, then grade every attempt against weighted rubrics.
-- 🧠 **Knowledge-point catalogue** — teachers author topics and Markdown knowledge points; Nova injects exactly the right scope into each prompt, never silently truncating it.
-- 🚦 **Built-in observability** — a dedicated monitor surfaces turns, traces and metrics across web, worker and sandbox.
-- 🔌 **Modular runtime** — a coordinator/worker engine built on LangGraph, with tool runtime, memory runtime and sandboxed code execution.
-- 💬 **Web and CLI** — chat from the browser or straight from the terminal.
+- **Four views for one classroom** — Learner, Teacher, Developer and Monitor interfaces, gated by role-based access control.
+- **Socratic guided learning** — guided sessions carry a learner from a misconception to understanding, one step at a time.
+- **Auto-graded exercises** — teacher-defined blueprints generate fill-in, multiple-choice, table, formula, code and coordinate-graph questions, then grade every attempt against weighted rubrics.
+- **Knowledge-point catalogue** — teachers author topics and Markdown knowledge points; Nova injects exactly the right scope into each prompt, never silently truncating it.
+- **Built-in observability** — a dedicated monitor surfaces turns, traces and metrics across web, worker and sandbox.
+- **Modular runtime** — a coordinator/worker engine built on LangGraph, with tool runtime, memory runtime and sandboxed code execution.
+- **Web and CLI** — chat from the browser or straight from the terminal.
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 flowchart LR
@@ -73,7 +75,7 @@ flowchart LR
 
 The web process owns a single, lifecycle-owning **Backend Gateway** (coordinator, worker, LangGraph, tool, memory and persistence lifecycles). Turns are dispatched to `nova-worker` over Redis; generated code runs inside an isolated `nova-sandbox-manager` container; and `nova-monitor` observes the whole pipeline.
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -110,7 +112,7 @@ uv run python main.py chat
 
 For the observability monitor, run `uv run python main.py monitor` first, then open <http://127.0.0.1:8766/>.
 
-## 📚 Documentation
+## Documentation
 
 - [Contributing](./CONTRIBUTING.md)
 - [Configuration & guides](./docs/)
