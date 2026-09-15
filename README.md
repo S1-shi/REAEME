@@ -94,19 +94,6 @@ uv run python main.py serve               # start the server
 
 Once it starts, open <http://127.0.0.1:8765>.
 
-<details>
-<summary>macOS / Linux</summary>
-
-```shell
-uv sync
-cp .env-example .env
-uv run python main.py bootstrap-db
-uv run python main.py bootstrap-developer
-uv run python main.py serve
-```
-
-</details>
-
 ### Log in and explore
 
 Log in with the account created by `bootstrap-developer`:

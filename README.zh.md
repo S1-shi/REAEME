@@ -94,19 +94,6 @@ uv run python main.py serve               # 启动服务
 
 启动成功后，在浏览器打开 <http://127.0.0.1:8765>。
 
-<details>
-<summary>macOS / Linux</summary>
-
-```shell
-uv sync
-cp .env-example .env
-uv run python main.py bootstrap-db
-uv run python main.py bootstrap-developer
-uv run python main.py serve
-```
-
-</details>
-
 ### 登录与使用
 
 用 `bootstrap-developer` 创建的账号登录后即可开始：
