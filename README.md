@@ -9,12 +9,15 @@
 *Start from a single question — ask, understand, practice, and review, all in one place.*
 
 <p>
+  <img src="https://img.shields.io/github/stars/liunor/nlp-agent?logo=github" alt="GitHub stars">
+  <img src="https://github.com/liunor/nlp-agent/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI">
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/FastAPI-005571?logo=fastapi" alt="FastAPI">
   <img src="https://img.shields.io/badge/LangGraph-1C3C3C" alt="LangGraph">
   <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white" alt="Redis">
   <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/docs-docs%2F-blue" alt="Docs">
   <img src="https://img.shields.io/badge/License-MIT-0969da" alt="MIT License">
 </p>
 
@@ -32,6 +35,17 @@
 <img src="docs/assets/demo-flow.gif" alt="Nova feature walkthrough" width="100%" />
 
 Nova is not another general-purpose chatbot. It is a **teaching-and-learning copilot for NLP classrooms**: teachers author topics, knowledge points and auto-graded exercises; learners ask questions and are led through Socratic explanations, practice and review — while every attempt is scored against a rubric the teacher defined.
+
+## Start here
+
+| You want to... | Go to |
+| --- | --- |
+| Run it locally in minutes | [Quick Start](#quick-start) |
+| See what it looks like | [Four dedicated views](#four-dedicated-views) |
+| Understand the feature set | [Features](#features) |
+| Understand how it's built | [Architecture](#architecture) |
+| Configure models & database | [`.env-example`](./.env-example) |
+| Contribute or extend it | [CONTRIBUTING.md](./CONTRIBUTING.md) |
 
 ## Four dedicated views
 
@@ -82,7 +96,11 @@ The web process owns a single, lifecycle-owning **Backend Gateway** (coordinator
 - Python 3.11 or newer, and [uv](https://docs.astral.sh/uv/).
 - A MySQL database, configured in `.env`.
 
-A full distributed stack (nginx, MySQL, Redis, web, worker, sandbox manager) is provided in [`compose.yaml`](./compose.yaml).
+> [!NOTE]
+> Copy [`.env-example`](./.env-example) to `.env` and fill in the model service key and database connection before starting.
+
+> [!TIP]
+> For the full distributed stack (nginx, MySQL, Redis, web, worker, sandbox manager), use the provided [`compose.yaml`](./compose.yaml).
 
 ### Install and run
 

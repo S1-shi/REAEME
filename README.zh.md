@@ -9,12 +9,15 @@
 *从一个问题开始 —— 提问、理解、练习、复盘，一站式完成。*
 
 <p>
+  <img src="https://img.shields.io/github/stars/liunor/nlp-agent?logo=github" alt="GitHub stars">
+  <img src="https://github.com/liunor/nlp-agent/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI">
   <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/FastAPI-005571?logo=fastapi" alt="FastAPI">
   <img src="https://img.shields.io/badge/LangGraph-1C3C3C" alt="LangGraph">
   <img src="https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=white" alt="MySQL">
   <img src="https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white" alt="Redis">
   <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/docs-docs%2F-blue" alt="Docs">
   <img src="https://img.shields.io/badge/License-MIT-0969da" alt="MIT License">
 </p>
 
@@ -32,6 +35,17 @@
 <img src="docs/assets/demo-flow.gif" alt="Nova 功能联动演示" width="100%" />
 
 Nova 不是又一个通用聊天机器人，而是一个面向 **NLP 课堂的教学与学习协作者**：教师编写主题、知识点与自动批改练习；学习者提出问题，在苏格拉底式讲解、练习与复盘中被一步步引导——每一次作答都由教师定义的评分细则来打分。
+
+## 从这里开始
+
+| 你想... | 去看 |
+| --- | --- |
+| 几分钟内本地跑起来 | [快速开始](#快速开始) |
+| 看看长什么样 | [四个端](#四个端) |
+| 了解功能 | [功能](#功能) |
+| 了解架构 | [架构](#架构) |
+| 配置模型与数据库 | [`.env-example`](./.env-example) |
+| 参与贡献或扩展 | [CONTRIBUTING.zh.md](./CONTRIBUTING.zh.md) |
 
 ## 四个端
 
@@ -82,7 +96,11 @@ Web 进程持有一个唯一的、管理生命周期的 **Backend Gateway**（�
 - Python 3.11 或更高版本，以及 [uv](https://docs.astral.sh/uv/)。
 - 一个 MySQL 数据库，连接信息在 `.env` 中配置。
 
-完整分布式栈（nginx、MySQL、Redis、web、worker、sandbox manager）见 [`compose.yaml`](./compose.yaml)。
+> [!NOTE]
+> 先把 [`.env-example`](./.env-example) 复制为 `.env`，填好模型服务密钥与数据库连接再启动。
+
+> [!TIP]
+> 完整分布式栈（nginx、MySQL、Redis、web、worker、sandbox manager）见 [`compose.yaml`](./compose.yaml)。
 
 ### 安装与运行
 
