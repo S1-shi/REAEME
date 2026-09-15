@@ -4,9 +4,7 @@
 
 <h1>Nova</h1>
 
-**An intelligent copilot for NLP teaching and learning.**
-
-*Start from a single question — ask, understand, practice, and review, all in one place.*
+**A teaching and learning assistant for NLP courses.**
 
 <p>
   <img src="https://img.shields.io/github/stars/liunor/nlp-agent?logo=github" alt="GitHub stars">
@@ -34,7 +32,7 @@
 
 <img src="docs/assets/demo-flow.gif" alt="Nova feature walkthrough" width="100%" />
 
-Nova is not another general-purpose chatbot. It is a **teaching-and-learning copilot for NLP classrooms**: teachers author topics, knowledge points and auto-graded exercises; learners ask questions and are led through Socratic explanations, practice and review — while every attempt is scored against a rubric the teacher defined.
+Nova is an assistant for NLP teaching and learning. Teachers write topics, knowledge points and exercises; students ask questions and get explanations, practice and review. Each exercise answer is graded against a rubric the teacher defines.
 
 ## Start here
 
@@ -49,7 +47,7 @@ Nova is not another general-purpose chatbot. It is a **teaching-and-learning cop
 
 ## Four dedicated views
 
-Nova ships as **four role-based views** over a single deployment, so a whole classroom runs on one instance:
+Nova runs four role-based views over a single deployment, so a whole classroom works on one instance:
 
 | Learner | Teacher |
 | :---: | :---: |
@@ -63,13 +61,13 @@ Nova ships as **four role-based views** over a single deployment, so a whole cla
 
 ## Features
 
-- **Four views for one classroom** — Learner, Teacher, Developer and Monitor interfaces, gated by role-based access control.
-- **Socratic guided learning** — guided sessions carry a learner from a misconception to understanding, one step at a time.
-- **Auto-graded exercises** — teacher-defined blueprints generate fill-in, multiple-choice, table, formula, code and coordinate-graph questions, then grade every attempt against weighted rubrics.
-- **Knowledge-point catalogue** — teachers author topics and Markdown knowledge points; Nova injects exactly the right scope into each prompt, never silently truncating it.
-- **Built-in observability** — a dedicated monitor surfaces turns, traces and metrics across web, worker and sandbox.
-- **Modular runtime** — a coordinator/worker engine built on LangGraph, with tool runtime, memory runtime and sandboxed code execution.
-- **Web and CLI** — chat from the browser or straight from the terminal.
+- **Four role-based views**: Learner, Teacher, Developer and Monitor, separated by access control.
+- **Guided learning**: question-and-answer sessions that work step by step.
+- **Auto-graded exercises**: teachers define blueprints that generate questions and grade answers against weighted rubrics.
+- **Knowledge-point catalogue**: teachers write topics and Markdown knowledge points; each prompt gets exactly the scope it needs.
+- **Observability**: a built-in monitor shows turns, traces and metrics across web, worker and sandbox.
+- **Modular runtime**: a coordinator/worker engine on LangGraph, with tools, memory and sandboxed code execution.
+- **Web and CLI**: chat from the browser or the terminal.
 
 ## Architecture
 
@@ -87,7 +85,7 @@ flowchart LR
     O --> R
 ```
 
-The web process owns a single, lifecycle-owning **Backend Gateway** (coordinator, worker, LangGraph, tool, memory and persistence lifecycles). Turns are dispatched to `nova-worker` over Redis; generated code runs inside an isolated `nova-sandbox-manager` container; and `nova-monitor` observes the whole pipeline.
+The web process runs a single Backend Gateway that owns the coordinator, worker, LangGraph, tools, memory and persistence. Turns go to `nova-worker` over Redis; generated code runs in an isolated `nova-sandbox-manager` container; `nova-monitor` watches the pipeline.
 
 ## Quick Start
 
