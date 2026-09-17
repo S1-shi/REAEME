@@ -49,7 +49,7 @@ Nova 在一个部署上运行四个基于角色的视图，整个课堂只需一
 
 ### 学习者
 
-提问、理解、练习与复盘。
+用自然语言提问，获得一步一步的讲解；用自动批改的练习巩固，并对照教师设定的评分细则复盘。
 
 <p align="center">
   <img src="docs/assets/screenshot-learner.png" alt="学习者界面" width="900">
@@ -57,7 +57,7 @@ Nova 在一个部署上运行四个基于角色的视图，整个课堂只需一
 
 ### 教师
 
-编写课程、知识点与分析。
+编写主题与 Markdown 知识点，让每次提问注入恰好对应的范围；设计练习蓝图生成题目并按加权细则打分。
 
 <p align="center">
   <img src="docs/assets/screenshot-teacher.png" alt="教师界面" width="900">
@@ -65,7 +65,7 @@ Nova 在一个部署上运行四个基于角色的视图，整个课堂只需一
 
 ### 开发者
 
-平台、模型与配置。
+集中管理模型服务商与密钥、运行时配置，以及运行生成代码的沙箱。
 
 <p align="center">
   <img src="docs/assets/screenshot-developer.png" alt="开发者界面" width="900">
@@ -73,7 +73,7 @@ Nova 在一个部署上运行四个基于角色的视图，整个课堂只需一
 
 ### 运行监控
 
-追踪、指标与任务活动。
+实时纵览 web、worker 与 sandbox 的轮次、追踪与指标，查看整条流水线的任务活动。
 
 <p align="center">
   <img src="docs/assets/screenshot-monitor.png" alt="运行监控界面" width="900">
