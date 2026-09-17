@@ -49,7 +49,7 @@ Nova runs four role-based views over a single deployment, so a whole classroom w
 
 ### Learner
 
-Ask, understand, practice and review.
+Ask questions in plain language, get step-by-step explanations, practice with auto-graded exercises, and review each answer against the rubric your teacher defined.
 
 <p align="center">
   <img src="docs/assets/screenshot-learner.png" alt="Learner view" width="900">
@@ -57,7 +57,7 @@ Ask, understand, practice and review.
 
 ### Teacher
 
-Author courses, knowledge points and analytics.
+Author topics and Markdown knowledge points that are injected into exactly the scope a student's question needs, and design exercise blueprints that generate questions and grade answers against weighted rubrics.
 
 <p align="center">
   <img src="docs/assets/screenshot-teacher.png" alt="Teacher view" width="900">
@@ -65,7 +65,7 @@ Author courses, knowledge points and analytics.
 
 ### Developer
 
-Platform, models and configuration.
+Manage model providers and keys, runtime configuration, and the sandbox that runs generated code, all from one place.
 
 <p align="center">
   <img src="docs/assets/screenshot-developer.png" alt="Developer view" width="900">
@@ -73,7 +73,7 @@ Platform, models and configuration.
 
 ### Monitor
 
-Traces, metrics and worker activity.
+Watch live turns, traces, and metrics across the web, worker, and sandbox, and inspect task activity for the whole pipeline.
 
 <p align="center">
   <img src="docs/assets/screenshot-monitor.png" alt="Monitor view" width="900">
