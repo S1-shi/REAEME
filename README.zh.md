@@ -42,22 +42,44 @@ Nova 是面向 NLP 教学与学习的助手。教师编写主题、知识点与�
 | 看看长什么样 | [四个端](#四个端) |
 | 了解功能 | [功能](#功能) |
 | 了解架构 | [架构](#架构) |
-| 配置模型与数据库 | [`.env-example`](./.env-example) |
+| 配置模型与数据库 | [`.env-example.zh`](./.env-example.zh) |
 | 参与贡献或扩展 | [CONTRIBUTING.zh.md](./CONTRIBUTING.zh.md) |
 
 ## 四个端
 
 Nova 在一个部署上运行四个基于角色的视图，整个课堂只需一套实例：
 
-| 学习者 | 教师 |
-| :---: | :---: |
-| 提问、理解、练习、复盘 | 编写课程、知识点与分析 |
-| <img src="docs/assets/screenshot-learner.png" alt="学习者界面" width="480"> | <img src="docs/assets/screenshot-teacher.png" alt="教师界面" width="480"> |
+### 学习者
 
-| 开发者 | 运行监控 |
-| :---: | :---: |
-| 平台、模型与配置 | 追踪、指标与任务活动 |
-| <img src="docs/assets/screenshot-developer.png" alt="开发者界面" width="480"> | <img src="docs/assets/screenshot-monitor.png" alt="运行监控界面" width="480"> |
+提问、理解、练习与复盘。
+
+<p align="center">
+  <img src="docs/assets/screenshot-learner.png" alt="学习者界面" width="900">
+</p>
+
+### 教师
+
+编写课程、知识点与分析。
+
+<p align="center">
+  <img src="docs/assets/screenshot-teacher.png" alt="教师界面" width="900">
+</p>
+
+### 开发者
+
+平台、模型与配置。
+
+<p align="center">
+  <img src="docs/assets/screenshot-developer.png" alt="开发者界面" width="900">
+</p>
+
+### 运行监控
+
+追踪、指标与任务活动。
+
+<p align="center">
+  <img src="docs/assets/screenshot-monitor.png" alt="运行监控界面" width="900">
+</p>
 
 ## 功能
 
@@ -95,7 +117,7 @@ Web 进程运行唯一的 Backend Gateway，统管协调者、工作者、LangGr
 - 一个 MySQL 数据库，连接信息在 `.env` 中配置。
 
 > [!NOTE]
-> 先把 [`.env-example`](./.env-example) 复制为 `.env`，填好模型服务密钥与数据库连接再启动。
+> 先把 [`.env-example.zh`](./.env-example.zh) 复制为 `.env`，填好模型服务密钥与数据库连接再启动。
 
 > [!TIP]
 > 完整分布式栈（nginx、MySQL、Redis、web、worker、sandbox manager）见 [`compose.yaml`](./compose.yaml)。
