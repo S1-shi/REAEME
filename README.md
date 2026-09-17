@@ -31,7 +31,9 @@
 
 <img src="docs/assets/demo-flow.gif" alt="Nova feature walkthrough" width="100%" />
 
-Nova is an assistant for NLP teaching and learning. Teachers write topics, knowledge points and exercises; students ask questions and get explanations, practice and review. Each exercise answer is graded against a rubric the teacher defines.
+Nova is a teaching and learning assistant for NLP courses. A single deployment serves four roles — Learner, Teacher, Developer and Monitor — so one instance covers a whole class.
+
+Teachers author topics, Markdown knowledge points and exercise blueprints. Students ask questions in plain language and get step-by-step explanations, auto-graded practice, and a review of each answer against the rubric their teacher defined. The Developer configures models and infrastructure, and the Monitor watches every turn across the pipeline.
 
 ## Start here
 
@@ -49,7 +51,11 @@ Nova runs four role-based views over a single deployment, so a whole classroom w
 
 ### Learner
 
-Ask questions in plain language, get step-by-step explanations, practice with auto-graded exercises, and review each answer against the rubric your teacher defined.
+The Learner view is where students do their coursework.
+
+- Ask questions in plain language and follow step-by-step explanations.
+- Practise with auto-generated exercises that come from your teacher's blueprints.
+- Review every answer against the weighted rubric your teacher defined.
 
 <p align="center">
   <img src="docs/assets/screenshot-learner.png" alt="Learner view" width="900">
@@ -57,7 +63,11 @@ Ask questions in plain language, get step-by-step explanations, practice with au
 
 ### Teacher
 
-Author topics and Markdown knowledge points that are injected into exactly the scope a student's question needs, and design exercise blueprints that generate questions and grade answers against weighted rubrics.
+The Teacher view is where instructors author the course.
+
+- Write topics and Markdown knowledge points; each question is injected with exactly the scope it needs.
+- Design exercise blueprints that generate questions and grade answers against weighted rubrics.
+- Keep grading consistent across the class with one shared rubric.
 
 <p align="center">
   <img src="docs/assets/screenshot-teacher.png" alt="Teacher view" width="900">
@@ -65,7 +75,11 @@ Author topics and Markdown knowledge points that are injected into exactly the s
 
 ### Developer
 
-Manage model providers and keys, runtime configuration, and the sandbox that runs generated code, all from one place.
+The Developer view manages model and runtime configuration.
+
+- Add and rotate model providers and their API keys in one place.
+- Tune runtime settings for the web, worker and sandbox services.
+- Manage the sandbox that runs generated code, isolated from the host.
 
 <p align="center">
   <img src="docs/assets/screenshot-developer.png" alt="Developer view" width="900">
@@ -73,7 +87,11 @@ Manage model providers and keys, runtime configuration, and the sandbox that run
 
 ### Monitor
 
-Watch live turns, traces, and metrics across the web, worker, and sandbox, and inspect task activity for the whole pipeline.
+The Monitor view is the observability dashboard.
+
+- Watch live turns, traces and metrics across web, worker and sandbox.
+- Inspect task activity along the whole pipeline.
+- Trace a single question from the client all the way to the answer.
 
 <p align="center">
   <img src="docs/assets/screenshot-monitor.png" alt="Monitor view" width="900">
@@ -81,13 +99,13 @@ Watch live turns, traces, and metrics across the web, worker, and sandbox, and i
 
 ## Features
 
-- **Four role-based views**: Learner, Teacher, Developer and Monitor, separated by access control.
-- **Guided learning**: question-and-answer sessions that work step by step.
-- **Auto-graded exercises**: teachers define blueprints that generate questions and grade answers against weighted rubrics.
-- **Knowledge-point catalogue**: teachers write topics and Markdown knowledge points; each prompt gets exactly the scope it needs.
+- **Four role-based views**: Learner, Teacher, Developer and Monitor, separated by access control so each role sees only what it should.
+- **Guided learning**: question-and-answer sessions that resolve a problem step by step instead of dumping a single answer.
+- **Auto-graded exercises**: teachers define blueprints that generate questions and grade each answer against weighted rubrics.
+- **Knowledge-point catalogue**: teachers write topics and Markdown knowledge points; each question is answered with exactly the scope it needs, nothing more.
 - **Observability**: a built-in monitor shows turns, traces and metrics across web, worker and sandbox.
 - **Modular runtime**: a coordinator/worker engine on LangGraph, with tools, memory and sandboxed code execution.
-- **Web and CLI**: chat from the browser or the terminal.
+- **Web and CLI**: chat from the browser or the terminal, so students and teachers aren't tied to one interface.
 
 ## Quick Start
 
