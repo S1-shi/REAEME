@@ -21,7 +21,6 @@
 
 <p>
   <a href="#功能">功能</a> ·
-  <a href="#架构">架构</a> ·
   <a href="#快速开始">快速开始</a> ·
   <a href="README.md">English</a> ·
   <a href="CONTRIBUTING.zh.md">贡献指南</a> ·
@@ -41,7 +40,6 @@ Nova 是面向 NLP 教学与学习的助手。教师编写主题、知识点与�
 | 几分钟内本地跑起来 | [快速开始](#快速开始) |
 | 看看长什么样 | [四个端](#四个端) |
 | 了解功能 | [功能](#功能) |
-| 了解架构 | [架构](#架构) |
 | 配置模型与数据库 | [`.env-example.zh`](./.env-example.zh) |
 | 参与贡献或扩展 | [CONTRIBUTING.zh.md](./CONTRIBUTING.zh.md) |
 
@@ -90,24 +88,6 @@ Nova 在一个部署上运行四个基于角色的视图，整个课堂只需一
 - **可观测性**：内建监控纵览 web、worker 与 sandbox 的轮次、追踪与指标。
 - **模块化运行时**：基于 LangGraph 的协调者 / 工作者引擎，含工具、记忆与隔离代码执行。
 - **网页与命令行**：可在浏览器或终端对话。
-
-## 架构
-
-```mermaid
-flowchart LR
-    U[浏览器 / CLI] --> N[nginx]
-    N --> WEB[nova-web · FastAPI]
-    WEB --> R[(Redis)]
-    WEB --> M[(MySQL)]
-    R --> W[nova-worker]
-    W --> LLM[模型服务商]
-    W --> S[nova-sandbox-manager]
-    S --> D[Docker 引擎]
-    O[nova-monitor] --> M
-    O --> R
-```
-
-Web 进程运行唯一的 Backend Gateway，统管协调者、工作者、LangGraph、工具、记忆与持久化。任务经 Redis 派给 `nova-worker`；生成的代码在隔离的 `nova-sandbox-manager` 容器中运行；`nova-monitor` 观测整条流水线。
 
 ## 快速开始
 

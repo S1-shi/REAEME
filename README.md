@@ -21,7 +21,6 @@
 
 <p>
   <a href="#features">Features</a> ·
-  <a href="#architecture">Architecture</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="README.zh.md">中文</a> ·
   <a href="CONTRIBUTING.md">Contributing</a> ·
@@ -41,7 +40,6 @@ Nova is an assistant for NLP teaching and learning. Teachers write topics, knowl
 | Run it locally in minutes | [Quick Start](#quick-start) |
 | See what it looks like | [Four dedicated views](#four-dedicated-views) |
 | Understand the feature set | [Features](#features) |
-| Understand how it's built | [Architecture](#architecture) |
 | Configure models & database | [`.env-example`](./.env-example) |
 | Contribute or extend it | [CONTRIBUTING.md](./CONTRIBUTING.md) |
 
@@ -90,24 +88,6 @@ Traces, metrics and worker activity.
 - **Observability**: a built-in monitor shows turns, traces and metrics across web, worker and sandbox.
 - **Modular runtime**: a coordinator/worker engine on LangGraph, with tools, memory and sandboxed code execution.
 - **Web and CLI**: chat from the browser or the terminal.
-
-## Architecture
-
-```mermaid
-flowchart LR
-    U[Browser / CLI] --> N[nginx]
-    N --> WEB[nova-web · FastAPI]
-    WEB --> R[(Redis)]
-    WEB --> M[(MySQL)]
-    R --> W[nova-worker]
-    W --> LLM[LLM providers]
-    W --> S[nova-sandbox-manager]
-    S --> D[Docker Engine]
-    O[nova-monitor] --> M
-    O --> R
-```
-
-The web process runs a single Backend Gateway that owns the coordinator, worker, LangGraph, tools, memory and persistence. Turns go to `nova-worker` over Redis; generated code runs in an isolated `nova-sandbox-manager` container; `nova-monitor` watches the pipeline.
 
 ## Quick Start
 
