@@ -49,15 +49,37 @@ Nova is an assistant for NLP teaching and learning. Teachers write topics, knowl
 
 Nova runs four role-based views over a single deployment, so a whole classroom works on one instance:
 
-| Learner | Teacher |
-| :---: | :---: |
-| Ask, understand, practice, review | Author courses, knowledge points & analytics |
-| <img src="docs/assets/screenshot-learner.png" alt="Learner view" width="480"> | <img src="docs/assets/screenshot-teacher.png" alt="Teacher view" width="480"> |
+### Learner
 
-| Developer | Monitor |
-| :---: | :---: |
-| Platform, models & configuration | Traces, metrics & worker activity |
-| <img src="docs/assets/screenshot-developer.png" alt="Developer view" width="480"> | <img src="docs/assets/screenshot-monitor.png" alt="Monitor view" width="480"> |
+Ask, understand, practice and review.
+
+<p align="center">
+  <img src="docs/assets/screenshot-learner.png" alt="Learner view" width="900">
+</p>
+
+### Teacher
+
+Author courses, knowledge points and analytics.
+
+<p align="center">
+  <img src="docs/assets/screenshot-teacher.png" alt="Teacher view" width="900">
+</p>
+
+### Developer
+
+Platform, models and configuration.
+
+<p align="center">
+  <img src="docs/assets/screenshot-developer.png" alt="Developer view" width="900">
+</p>
+
+### Monitor
+
+Traces, metrics and worker activity.
+
+<p align="center">
+  <img src="docs/assets/screenshot-monitor.png" alt="Monitor view" width="900">
+</p>
 
 ## Features
 
